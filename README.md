@@ -28,7 +28,7 @@ const combine = (input1: number | string, input2: number | string) => {
   }
 }
 ```
-### Literal Types
+### Literal Types - exact number of different types
 ```
 const combine = (input1: number | string, input2: number | string) => {
   let result;
@@ -37,5 +37,23 @@ const combine = (input1: number | string, input2: number | string) => {
   } else {
     result = input1.toString() + input2.toString();
   }
+}
+```
+
+### Type Aliases
+```
+type Combinable = number | string;
+type ConversionDescriptor = 'as-number' | 'as-text';
+```
+
+### functions as types
+```
+let combineValues: (a: number, b: number) => number;
+```
+### functions with callbacks
+```
+function addAndHandle(n1: number, n2: number, cb: (num: number) => void) {
+  const result = n1 + n2;
+  cb(result);
 }
 ```
